@@ -1,6 +1,6 @@
 from alpine
 
-RUN apk update apk add node npm
+RUN apk add nodejs npm
 
 COPY . .
 
