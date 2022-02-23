@@ -3,6 +3,7 @@ import { TrashIcon } from '@heroicons/react/solid'
 import { useDispatch } from 'react-redux'
 import { deleteProduct } from '../../../redux/productSlice'
 import { useNavigate } from 'react-router'
+import {Link} from 'react-router-dom';
 
 const ProductLi = ({ product }) => {
 
@@ -19,7 +20,7 @@ const ProductLi = ({ product }) => {
   }
 
   return (
-    <li className='w-full flex  py-4 font-light hover:bg-Primary/10 transition-all cursor-pointer' onClick={() => toUserPage()}>
+    <Link className='w-full flex  py-4 font-light hover:bg-Primary/10 transition-all cursor-pointer' to={`/product/${product.id}`}>
         <div className='w-1/5 ml-5'>{ product.name }</div>
         <div className='w-1/5'>{ product.type }</div>
         <div className='w-1/5'>{ product.ref }</div>
@@ -27,7 +28,7 @@ const ProductLi = ({ product }) => {
         <button type="submit" onClick={(e) => deleteProduct(e)} className='w-1/5 flex justify-end lg:pr-20 md:pr-10 pr-5 cursor-pointer'>
             <TrashIcon className='w-5 h-5 text-Primary ' />
         </button>
-    </li>
+    </Link>
   )
 }
 
