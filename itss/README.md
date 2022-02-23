@@ -5,6 +5,7 @@
 ## Installation
 
 ```bash
+$ cd itss
 $ docker-compose up --build
 ```
 
