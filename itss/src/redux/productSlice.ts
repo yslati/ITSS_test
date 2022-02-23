@@ -59,6 +59,8 @@ const productSlice = createSlice({
             state.push(action.payload)
         },
         deleteProduct: (state, action) => {
+            console.log(`delete ${action.payload}`);
+            
             state = state.filter(p => p.id !== action.payload)
         },
         deleteAllProducts: (state, action) => {
