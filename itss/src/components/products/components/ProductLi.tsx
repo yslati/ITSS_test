@@ -19,7 +19,7 @@ const ProductLi = ({ product }) => {
   }
 
   return (
-    <li className='w-full flex  py-4 font-light hover:bg-Primary/10 transition-all cursor-pointer' onCLick={toUserPage()}>
+    <li className='w-full flex  py-4 font-light hover:bg-Primary/10 transition-all cursor-pointer' >
         <div className='w-1/5 ml-5'>{ product.name }</div>
         <div className='w-1/5'>{ product.type }</div>
         <div className='w-1/5'>{ product.ref }</div>
