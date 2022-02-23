@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
 import AddProduct from "./components/products/AddProduct";
 import Products from "./components/products/Products";
+import ProductPage from "./components/products/ProductPage";
 
 
 const App = () =>  {
@@ -20,6 +21,7 @@ const App = () =>  {
         <Route path="/login" element={ <Login /> } />
         <Route path="/products" element={ <Products /> } />
         <Route path="/product/add" element={ <AddProduct /> } />
+        <Route path="/product/:id" element={ <ProductPage /> } />
         
         <Route path="/404" element={ <NotFound /> } />
         <Route path="/" element={ <Navigate to="/products" /> } />

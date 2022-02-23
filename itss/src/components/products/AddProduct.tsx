@@ -10,23 +10,41 @@ const AddProduct = () => {
     const [name, setName] = useState('')
     const [type, setType] = useState('')
     const [ref, setRef] = useState('')
-    const [price, setPrice] = useState('')
+    const [price, setPrice] = useState(0)
     const [description, setDescription] = useState('')
     const [image, setImage] = useState(null)
+    const [done, setDone] = useState(false)
 
     const handleSelectedImage = (e: any) => {
         setImage(e.target.files[0])
     }
 
     const handleSave = () => {
+        name && type && ref && price !== 0 && Number(price) &&
         dispatch(addProduct({
             id: products.length + 1,
             name: name,
             type: type,
             ref: ref,
             price: price,
+            description: description,
+            image: image
+        })) && setDone(true)
+        if (done) {
+            setName('')
+            setType('')
+            setRef('')
+            setPrice(0)
+            setDescription('')
+            setImage(null)
+            setDone(false)
+        }
+        
+        // .then(() => {
+        //     console.log('Ok');
             
-        }))
+        // })
+        
     }
 
   return (
@@ -49,11 +67,11 @@ const AddProduct = () => {
                     <label className="block uppercase tracking-wide text-Txt text-lg  italic mb-2">
                         TYPE
                     </label>
-                    <select required className="block appearance-none w-full border border-gray-300 px-2 text-Txt py-1.5 rounded-md bg-white outline-none">
+                    <select onChange={(e) => setType(e.target.value)} required className="block appearance-none w-full border border-gray-300 px-2 text-Txt py-1.5 rounded-md bg-white outline-none">
                         <option>- selectionnez un type de produit -</option>
-                        <option>Type 1</option>
-                        <option>Type 2</option>
-                        <option>Type 3</option>
+                        <option value="type 1" >Type 1</option>
+                        <option value="type 2" >Type 2</option>
+                        <option value="type 3" >Type 3</option>
                     </select>
                 </div>
                 <div className="w-full">
@@ -86,7 +104,7 @@ const AddProduct = () => {
             </div>
 
         </div>
-        <button type='button' onClick={() => handleSave} 
+        <button type='button' onClick={handleSave} 
             className="px-2 py-1 bg-Primary rounded mx-auto text-white text-sm mt-16 font-light"
         >
             ENREGISTRER

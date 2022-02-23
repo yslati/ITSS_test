@@ -79,6 +79,7 @@ const productSlice = createSlice({
         deleteAllProducts: (state, action) => {
             state = []
         },
+        
     },
 
 })
