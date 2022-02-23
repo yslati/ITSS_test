@@ -2,6 +2,8 @@ import { Navigate, Route, Routes, useLocation } from "react-router";
 import Login from "./components/login/Login";
 import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
+import AddProduct from "./components/products/AddProduct";
+import Products from "./components/products/Products";
 
 
 const App = () =>  {
@@ -16,8 +18,11 @@ const App = () =>  {
       }
       <Routes>
         <Route path="/login" element={ <Login /> } />
+        <Route path="/products" element={ <Products /> } />
+        <Route path="/product/add" element={ <AddProduct /> } />
         
         <Route path="/404" element={ <NotFound /> } />
+        <Route path="/" element={ <Navigate to="/products" /> } />
         <Route path="/*" element={ <Navigate to="/404" /> } />
       </Routes>
     </div>

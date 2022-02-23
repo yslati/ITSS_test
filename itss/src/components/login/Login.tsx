@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
-// import toast from 'react-hot-toast'
-
+import { useNavigate } from 'react-router'
 
 const Login = () => {
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const validator =  /^(([A-Za-z]{4,15}@[A-Za-z]{4,15}\.[a-z]{2,3}))$/;
+    const passValidator = /^(([A-Za-z0-6_\-@\%\+]{8,20}))$/;
+
     const connect = () => {
-        console.log("click");
-        
-        // toast('Here is your toast.')
+        if (validator.test(email) && passValidator.test(password))
+            navigate("/products")
     }
 
   return (

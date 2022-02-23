@@ -1,18 +1,6 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import api from '../services/api'
+import { createSlice } from '@reduxjs/toolkit'
+// import api from '../services/api'
 
-
-export const checkUser = createAsyncThunk(
-    'auth/checkUser',
-    async ({ email, password }: { email: string, password: string }, _api) => {
-        try {
-            let res = await api.put('/') 
-            return _api.fulfillWithValue(res.data)
-        } catch (error: any) {
-            return _api.rejectWithValue(error.message)
-        }
-    }
-)
 
 const userSlice = createSlice({
     name: 'user',

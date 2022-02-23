@@ -16,7 +16,6 @@ if (token_jwt)
     headers["authorization"] = `Bearer ${token_jwt}`;
 
 
-
 const api = Axios.create({
     baseURL: url,
     headers: headers
