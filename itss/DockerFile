@@ -1,0 +1,9 @@
+from alpine
+
+RUN apk update apk add node npm
+
+COPY . .
+
+RUN npm i
+
+CMD ["npm", "start"]
