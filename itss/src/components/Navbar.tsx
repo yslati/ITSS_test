@@ -22,7 +22,7 @@ const Navbar = () => {
                     AJOUTER UN PRODUIT
                 </h2>
             </Link>
-            <Link to="/user/logout" className='flex w-full text-red-500 text-sm space-x-4 items-center cursor-pointer'>
+            <Link to="/login" className='flex w-full text-red-500 text-sm space-x-4 items-center cursor-pointer'>
                 <LogoutIcon className='w-5 h-5' />
                 <h2 className='font-medium'>
                     DECONNEXION

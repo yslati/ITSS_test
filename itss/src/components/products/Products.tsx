@@ -19,7 +19,7 @@ const Products = () => {
           PRODUITS
         </h1>
         {
-
+          products.length > 0 &&
           <button type='button' onClick={() => clearList} className='font-light cursor-pointer'>
             Vider la list
           </button>

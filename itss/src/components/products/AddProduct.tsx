@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addProduct } from '../../redux/productSlice'
 
 const AddProduct = () => {
+
+    const dispatch = useDispatch()
+    const products = useSelector(state => state.products)
 
     const [name, setName] = useState('')
     const [type, setType] = useState('')
@@ -14,7 +19,14 @@ const AddProduct = () => {
     }
 
     const handleSave = () => {
-
+        dispatch(addProduct({
+            id: products.length + 1,
+            name: name,
+            type: type,
+            ref: ref,
+            price: price,
+            
+        }))
     }
 
   return (
@@ -31,29 +43,30 @@ const AddProduct = () => {
                     <label className="block uppercase tracking-wide text-Txt text-lg  italic mb-2">
                         NOM DU PRODUIT
                     </label>
-                    <input value={name} onChange={(e) => setName(e.target.value)} className="appearance-none block w-full font-light text-gray-700 rounded-md py-1.5 px-2 mb-3 leading-tight outline-none border border-gray-300 focus:border-gray-400" type="text" placeholder="Nom"/>
+                    <input required value={name} onChange={(e) => setName(e.target.value)} className="appearance-none block w-full font-light text-gray-700 rounded-md py-1.5 px-2 mb-3 leading-tight outline-none border border-gray-300 focus:border-gray-400" type="text" placeholder="Nom"/>
                 </div>
                 <div className="w-full">
                     <label className="block uppercase tracking-wide text-Txt text-lg  italic mb-2">
                         TYPE
                     </label>
-                    <select className="block appearance-none w-full border border-gray-300 px-2 text-Txt py-1.5 rounded-md bg-white outline-none">
+                    <select required className="block appearance-none w-full border border-gray-300 px-2 text-Txt py-1.5 rounded-md bg-white outline-none">
                         <option>- selectionnez un type de produit -</option>
-                        <option>physical</option>
-                        <option>digital</option>
+                        <option>Type 1</option>
+                        <option>Type 2</option>
+                        <option>Type 3</option>
                     </select>
                 </div>
                 <div className="w-full">
                     <label className="block uppercase tracking-wide text-Txt text-lg  italic mb-2">
                         REFERENCE
                     </label>
-                    <input value={ref} onChange={(e) => setRef(e.target.value)} className="appearance-none block w-full font-light text-gray-700 rounded-md py-1.5 px-2 mb-3 leading-tight outline-none border border-gray-300 focus:border-gray-400" type="text" placeholder="reference"/>
+                    <input required value={ref} onChange={(e) => setRef(e.target.value)} className="appearance-none block w-full font-light text-gray-700 rounded-md py-1.5 px-2 mb-3 leading-tight outline-none border border-gray-300 focus:border-gray-400" type="text" placeholder="reference"/>
                 </div>
                 <div className="w-full">
                     <label className="block uppercase tracking-wide text-Txt text-lg  italic mb-2">
                         PRIX
                     </label>
-                    <input value={price} onChange={(e) => setPrice(e.target.value)} className="appearance-none block w-full font-light text-gray-700 rounded-md py-1.5 px-2 leading-tight outline-none border border-gray-300 focus:border-gray-400" type="text" placeholder="prix"/>
+                    <input required value={price} onChange={(e) => setPrice(e.target.value)} className="appearance-none block w-full font-light text-gray-700 rounded-md py-1.5 px-2 leading-tight outline-none border border-gray-300 focus:border-gray-400" type="text" placeholder="prix"/>
                 </div>
             </div>
 
